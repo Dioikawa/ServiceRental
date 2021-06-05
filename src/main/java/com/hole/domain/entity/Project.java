@@ -11,9 +11,12 @@ import java.util.Date;
 public class Project {
     private Integer id;//项目id
     private String name;//项目名称
-    private Integer type;//项目类型
+    private Integer typeId;//项目类型id
     private Integer customerId;//客户id
-    private Date startTime;//开始时间
-    private Date endTime;//结束时间
+    private Integer freelancerId;//自由职业者id
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date startDate;//开始时间
+    private Date endDate;//结束时间
 
 }

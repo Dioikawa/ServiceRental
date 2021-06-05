@@ -8,9 +8,7 @@
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
-  <welcome-file-list>
-    <welcome-file>需要打开的jsp</welcome-file>
-  </welcome-file-list>
+
       <!-- 加载spring配置文件 -->
       <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

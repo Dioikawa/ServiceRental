@@ -1,5 +1,8 @@
 package com.hole.domain.entity;
 
+import lombok.Data;
+
+@Data
 public class Freelancer {
 
     private Integer id;//自由职业者id

@@ -41,7 +41,7 @@
                 console.log(result);
                 //判断是否成功
                 if(result.success){
-                    location.href="/index";
+                    location.href="/customer";
                 }else{
                     layer.msg("用户名密码错误，登录失败");
                 }
