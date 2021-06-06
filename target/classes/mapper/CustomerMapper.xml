@@ -23,34 +23,34 @@
         order by id asc
     </select>
 
-    <insert id="addBill">
-        insert into bills(title,billtime,typeid,price,remark) values(#{title},#{billTime},#{typeId},#{price},#{remark})
+    <insert id="addCustomer">
+        insert into customer(name,typeId,phone,address,mail) values(#{name},#{typeId},#{phone},#{address},#{mail})
     </insert>
 
-    <update id="updateBill">
-        update bills
+    <update id="updateCustomer">
+        update customer
         <set>
-            <if test="title!=null and title!=''">
-                title = #{title},
-            </if>
-            <if test="billTime!=null">
-                billtime = #{billTime},
+            <if test="name!=null and name!=''">
+                name = #{name},
             </if>
             <if test="typeId!=null">
                 typeId = #{typeId},
             </if>
-            <if test="price!=null">
-                price = #{price},
+            <if test="phone!=null and phone!=''">
+                phone = #{phone},
             </if>
-            <if test="remark!=null and remark!=''">
-                remark = #{remark},
+            <if test="address!=null and address!=''">
+                address = #{address},
+            </if>
+            <if test="mail!=null and mail!=''">
+                mail = #{mail},
             </if>
         </set>
         where id = #{id}
     </update>
 
     <delete id="deleteById">
-        delete from bills where id = #{id}
+        delete from customer where id = #{id}
     </delete>
 
 </mapper>

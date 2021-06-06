@@ -1,6 +1,5 @@
 package com.hole.domain.vo;
 
-import com.hole.domain.entity.Customer;
 import lombok.Data;
 
 

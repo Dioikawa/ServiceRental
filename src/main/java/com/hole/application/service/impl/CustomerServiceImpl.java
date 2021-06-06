@@ -17,7 +17,23 @@ public class CustomerServiceImpl implements CustomerService {
     @Resource
     private CustomerMapper customerMapper;
 
+    @Override
     public List<Customer> findCustomerList(CustomerVo customerVo) {
         return customerMapper.findCustomerList(customerVo);
+    }
+
+    @Override
+    public int addCustomer(Customer customer) {
+        return customerMapper.addCustomer(customer);
+    }
+
+    @Override
+    public int updateCustomer(Customer customer) {
+        return customerMapper.updateCustomer(customer);
+    }
+
+    @Override
+    public int deleteById(Integer id) {
+        return customerMapper.deleteById(id);
     }
 }

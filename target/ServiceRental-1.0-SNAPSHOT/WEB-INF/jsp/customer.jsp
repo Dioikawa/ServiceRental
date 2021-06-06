@@ -222,13 +222,13 @@
                 success:function () {
                     //清空表单数据
                     $("#dataFrm")[0].reset();//JavaScript中的方法
-                    url = "/bill/addBill";
+                    url = "/customer/addCustomer";
                 }
             });
         }
 
         /**
-         * 打开编辑窗口
+         * 打开修改窗口
          */
         function openUpdateWindow(data) {
             mainIndex =layer.open({
@@ -240,7 +240,7 @@
                     //表单数据回显
                     form.val("dataFrm",data);
                     //修改请求
-                    url = "/bill/updateBill";
+                    url = "/customer/updateCustomer";
                 }
             });
         }
@@ -270,9 +270,9 @@
          */
         function deleteById(data) {
             //提示用户确认是否删除
-            layer.confirm("确定要删除[<font color='red'>"+data.title+"</font>]账单吗？",{icon:3,title:"提示"},function (index) {
+            layer.confirm("确定要删除[<font color='red'>"+data.name+"</font>]客户吗？",{icon:3,title:"提示"},function (index) {
                 //发送ajax请求
-                $.post("/bill/deleteById",{"id":data.id},function(result){
+                $.post("/customer/deleteById",{"id":data.id},function(result){
                     if(result.success){
                         layer.alert(result.message,{icon:1});
                         //刷新数据表格
@@ -302,12 +302,13 @@
                     //将选中的ID值添加到数组的末尾
                     idArr.push(checkStatus.data[i].id);
                 }
-                //将数组转成字符串
+                //将数组转成字符串,ajax不能发送数字
                 var ids = idArr.join(",");
                 //提示用户是否删除
                 layer.confirm("确定要删除这<font color='red'>"+checkStatus.data.length+"</font>条数据吗？",{icon:3,title:"提示"},function (index) {
                     //发送ajax请求
-                    $.post("/bill/batchDelete",{"ids":ids},function(result){
+                    /*修改*/
+                    $.post("/customer/batchDelete",{"ids":ids},function(result){
                         if(result.success){
                             layer.alert(result.message,{icon:1});
                             //刷新数据表格
@@ -320,8 +321,6 @@
                     //关闭提示框
                     layer.close(index);
                 });
-
-
             }else{
                 layer.msg("请选择要删除的数据");
             }
