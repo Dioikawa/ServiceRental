@@ -23,23 +23,23 @@
     <form class="layui-form layui-form-pane" method="post">
         <div class="layui-form-item">
             <div class="layui-inline">
-                <label class="layui-form-label">账单类型</label>
+                <label class="layui-form-label">客户类型</label>
                 <div class="layui-input-inline">
                     <select name="typeId" class="layui-input">
-                        <option value="">请选择账单类型</option>
+                        <option value="">请选择客户类型</option>
                     </select>
                 </div>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label">开始日期</label>
+                <label class="layui-form-label">客户姓名</label>
                 <div class="layui-input-block">
-                    <input type="text" name="startDate" id="startDate" readonly autocomplete="off" class="layui-input" placeholder="请选择开始时间">
+                    <input type="text" name="name" autocomplete="off" class="layui-input" placeholder="请输入客户姓名">
                 </div>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label">结束日期</label>
+                <label class="layui-form-label">客户ID</label>
                 <div class="layui-input-block">
-                    <input type="text" name="endDate" id="endDate" readonly autocomplete="off" class="layui-input" placeholder="请选择结束时间">
+                    <input type="text" name="id" autocomplete="off" class="layui-input" placeholder="请输入客户ID">
                 </div>
             </div>
         </div>
@@ -55,18 +55,18 @@
 
 <!-- 数据表格开始 -->
 <div style="width: 80%;margin-left: 100px">
-    <!-- 表格 -->
-    <table class="layui-hide" id="billTable" lay-filter="billTable"></table>
+    <!-- 客户表格 -->
+    <table class="layui-hide" id="customerTable" lay-filter="customerTable"></table>
 
     <!-- 头部工具栏 -->
-    <script type="text/html" id="billToolbar">
+    <script type="text/html" id="customerToolbar">
         <div class="layui-btn-container">
-            <button class="layui-btn layui-btn-sm" lay-event="add"><i class="layui-icon layui-icon-add-circle"></i>添加账单</button>
+            <button class="layui-btn layui-btn-sm" lay-event="add"><i class="layui-icon layui-icon-add-circle"></i>添加客户</button>
             <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="batchDelete"><i class="layui-icon layui-icon-delete"></i>批量删除</button>
         </div>
     </script>
     <!-- 行工具栏 -->
-    <script type="text/html" id="billRowBar">
+    <script type="text/html" id="customerRowBar">
         <button class="layui-btn layui-btn-xs" lay-event="edit">编辑</button>
         <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</button>
     </script>
@@ -74,41 +74,41 @@
 </div>
 <!-- 数据表格结束 -->
 
-<!-- 添加和修改账单的弹出层开始 -->
-<div id="addOrUpdateBillDiv" style="display: none;margin: 10px">
+<!-- 添加和修改客户的弹出层开始 -->
+<div id="addOrUpdateCustomerDiv" style="display: none;margin: 10px">
     <form id="dataFrm" method="post" class="layui-form  layui-form-pane" lay-filter="dataFrm">
-        <!-- 隐藏域，保存当前账单的ID -->
+        <!-- 隐藏域，保存当前客户的ID -->
         <input type="hidden" name="id">
         <div class="layui-form-item">
-            <label class="layui-form-label">帐单类型</label>
-            <div class="layui-input-block" id="billTypeDiv">
-                <select name="typeId" class="layui-input" lay-verify="required" lay-reqText="请选择账单类型">
-                    <option value="">请选择账单类型</option>
+            <label class="layui-form-label">客户类型</label>
+            <div class="layui-input-block" id="customerTypeDiv">
+                <select name="typeId" class="layui-input" lay-verify="required" lay-reqText="请选择客户类型">
+                    <option value="">请选择客户类型</option>
                 </select>
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">帐单标题</label>
+            <label class="layui-form-label">客户姓名</label>
             <div class="layui-input-block">
-                <input type="text" name="title" placeholder="请输入账单标题" lay-verify="required" lay-reqText="请输入账单标题"  autocomplete="off" class="layui-input">
+                <input type="text" name="name" placeholder="请输入客户姓名" lay-verify="required" lay-reqText="请输入客户姓名"  autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">账单时间</label>
-            <div class="layui-input-block">
-                <input type="text" name="billTime" id="billtime" readonly="readonly" lay-reqText="请输入选择账单时间"   placeholder="yyyy-MM-dd HH:mm:ss" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">帐单金额</label>
+            <label class="layui-form-label">联系电话</label>
             <div class="layui-input-inline">
-                <input type="text" name="price"   lay-verify="number" placeholder="请输入账单金额"  lay-reqText="请输入账单金额"   autocomplete="off" class="layui-input">
+                <input type="text" name="phone"   lay-verify="phone" placeholder="请输入联系电话"  lay-reqText="请输入联系电话"   autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">帐单备注</label>
-            <div class="layui-input-block">
-                <textarea placeholder="请输入帐单备注" name="remark" class="layui-textarea"></textarea>
+            <label class="layui-form-label">联系地址</label>
+            <div class="layui-input-inline">
+                <input type="text" name="address"   placeholder="请输入联系地址"  lay-reqText="请输入联系地址"   autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">电子邮箱</label>
+            <div class="layui-input-inline">
+                <input type="text" name="mail"   lay-verify="email" placeholder="请输入电子邮箱"  lay-reqText="请输入电子邮箱"   autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item" style="text-align: center;">
@@ -117,7 +117,7 @@
         </div>
     </form>
 </div>
-<!-- 添加和修改账单的弹出层结束-->
+<!-- 添加和修改客户的弹出层结束-->
 
 
 
@@ -130,20 +130,8 @@
         var laydate = layui.laydate;
         var layer = layui.layer;
 
-        //渲染日期组件
-        laydate.render({
-            elem:"#startDate",
-        });
-        laydate.render({
-            elem:"#endDate"
-        });
-        laydate.render({
-            elem:"#billtime",
-            type:"datetime"
-        });
-
-        //发送Ajax请求查询账单类型
-        $.get("/billType/list",function(result){
+        //发送Ajax请求查询类型
+        $.get("/type/list",function(result){
             var html = "";
             //循环遍历集合
             for (let i = 0; i < result.length; i++) {
@@ -157,26 +145,28 @@
 
         //渲染表格组件
         var tableIns = table.render({
-            elem:"#billTable",//绑定表格元素，推荐使用ID选择器
-            url:"/bill/list",//异步请求地址,加入分页后，默认使用page(当前页码)和limit(每页显示数量)作为参数名称
+            elem:"#customerTable",//绑定表格元素，推荐使用ID选择器
+            url:"/customer/list",//异步请求地址,加入分页后，默认使用page(当前页码)和limit(每页显示数量)作为参数名称
             page:true,//开启分页
-            toolbar:"#billToolbar",
+            toolbar:"#customerToolbar",
             cols: [[ //表头
                 //field属性：字段属性，该属性与实体类的属性名一致
                 //title属性：表头文本
                 {type:"checkbox",fixed:"left",width:80,align:"center"},
-                {field: 'id', title: 'ID',align:"center"}
-                ,{field: 'title', title: '账单标题',align:"center"}
-                ,{field: 'typeName', title: '账单类型',align:"center"}
-                ,{field: 'price', title: '账单金额',align:"center"}
-                ,{field: 'billTime', title: '创建时间',align:"center"}
-                ,{field: 'remark', title: '备注',align:"center"}
-                ,{title:"操作",toolbar: "#billRowBar",align:"center"}
+                {field: 'id', title: '客户ID',align:"center"}
+                ,{field: 'name', title: '客户名',align:"center"}
+                ,{field: 'typeName', title: '客户类型',align:"center"}
+                ,{field: 'phone', title: '联系电话',align:"center"}
+                ,{field: 'address', title: '联系地址',align:"center"}
+                ,{field: 'mail', title: '电子邮箱',align:"center"}
+                ,{title:"操作",toolbar: "#customerRowBar",align:"center"}
             ]]
         });
 
         //监听搜索按钮提交事件
         form.on("submit(doSearch)",function (data) {
+            console.log(data.field);
+            //重载数据表格
             tableIns.reload({
                 where:data.field,//查询条件
                 page:{
@@ -189,7 +179,7 @@
 
 
         //监听表格头部工具栏事件
-        table.on("toolbar(billTable)",function (obj) {
+        table.on("toolbar(customerTable)",function (obj) {
             switch (obj.event) {
                 //添加
                 case 'add':
@@ -203,7 +193,7 @@
         });
 
         //监听表格行工具栏事件
-        table.on("tool(billTable)",function (obj) {
+        table.on("tool(customerTable)",function (obj) {
             switch (obj.event) {
                 //编辑
                 case 'edit':
@@ -226,9 +216,9 @@
         function openAddWindow() {
             mainIndex =layer.open({
                 type:1,//弹出层类型
-                title:"添加账单",
+                title:"添加客户",
                 area: ['800px', '600px'],
-                content:$("#addOrUpdateBillDiv"),//引用的窗口代码
+                content:$("#addOrUpdateCustomerDiv"),//引用的窗口代码
                 success:function () {
                     //清空表单数据
                     $("#dataFrm")[0].reset();//JavaScript中的方法
@@ -243,9 +233,9 @@
         function openUpdateWindow(data) {
             mainIndex =layer.open({
                 type:1,//弹出层类型
-                title:"修改账单",
+                title:"修改客户信息",
                 area: ['800px', '600px'],
-                content:$("#addOrUpdateBillDiv"),//引用的窗口代码
+                content:$("#addOrUpdateCustomerDiv"),//引用的窗口代码
                 success:function () {
                     //表单数据回显
                     form.val("dataFrm",data);
@@ -302,7 +292,7 @@
          */
         function batchDelete() {
             //获取表格对象
-            var checkStatus = table.checkStatus('billTable'); //billTable 即为基础参数 id 对应的值
+            var checkStatus = table.checkStatus('customerTable'); //customerTable 即为基础参数 id 对应的值
             //判断是否有选中行
             if(checkStatus.data.length>0){
                 //定义数组，保存选中行的ID

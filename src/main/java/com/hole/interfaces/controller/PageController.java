@@ -7,17 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageController {
 
     //去到客户页面
-    @RequestMapping("/customer")
+    @RequestMapping("/customerPage")
     public String toCustomer(){
         return "customer";
     }
 
-    @RequestMapping("/freelancer")
+    //去到自由职业者页面
+    @RequestMapping("/freelancerPage")
     public String toFreelancer(){
         return "freelancer";
     }
 
-    @RequestMapping("/project")
+    //去到项目页面
+    @RequestMapping("/projectPage")
     public String toProject(){
         return "project";
     }

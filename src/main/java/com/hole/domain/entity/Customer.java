@@ -11,5 +11,6 @@ public class Customer {
     private String phone;//客户电话
     private String address;//客户联系地址
     private String mail;//客户邮箱
-
+    //客户类型
+    private String typeName;
 }
