@@ -35,6 +35,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -63,6 +64,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -74,9 +76,9 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.hole.application.service.impl" />
-      <recent name="com.hole.application.service" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Github\ServiceRental\src\main\resources\image" />
+      <recent name="F:\Github\ServiceRental\src\main\webapp\WEB-INF" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Github\ServiceRental\src\main\resources" />
@@ -88,8 +90,9 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.hole.interfaces.controller" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Github\ServiceRental\src\main\webapp\WEB-INF" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.hole.application.service.impl" />
+      <recent name="com.hole.application.service" />
     </key>
   </component>
   <component name="RunManager">
@@ -254,7 +257,7 @@
       <workItem from="1622865851232" duration="4459000" />
       <workItem from="1622892055335" duration="14616000" />
       <workItem from="1622965268997" duration="30912000" />
-      <workItem from="1623048298266" duration="1701000" />
+      <workItem from="1623048298266" duration="8944000" />
     </task>
     <servers />
   </component>
